@@ -22,6 +22,8 @@
         <div> Le tableau de couleurs est vide</div>
     {% endfor %}
 
+
+
     {# créer un objet #}
     {% set book = {
         'title' : "Symfony",
@@ -40,6 +42,9 @@
 
     <p>{{ 'now' | date ('Y') }}</p>
     <p>{{ 'now' | date ('d/m/Y H:i') }}</p>
+
+{# raw permet d'outre passer la sécurité pour afficher les balises, A EVITER #}
+    <p>{{ serie.titre | raw}} - {{ serie.year }} - {{ autreVar }}</p>
 
 {% endblock %}
 
