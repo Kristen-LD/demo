@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Coucou le vendeur de tapis, Bernard</h1>
+
+    {# un commentaire #}
+
+    {% set nom ="Canaillou" %}
+    <h2>{{ nom | upper }}</h2>
+
+    {# créer un tableau #}
+    {% set colors = ["blue","red","yellow","orange"]%}
+
+
+
+    <div>Le tableau contient {{ colors | length }} couleurs</div>
+
+    {% for color in colors %}
+        <div style="background-color: {{ color }}">{{ color }}</div>
+    {% else %}
+        <div> Le tableau de couleurs est vide</div>
+    {% endfor %}
+
+    {# créer un objet #}
+    {% set book = {
+        'title' : "Symfony",
+        'author' : 'John Doe',
+        'year' : 2000
+    } %}
+
+    <h3>{{ book.title }}</h3>
+    <div>
+        {% for key, val in book  %}
+            <div>{{ key }} : {{ val }}</div>
+
+        {% endfor %}
+
+    </div>
+
+    <p>{{ 'now' | date ('Y') }}</p>
+    <p>{{ 'now' | date ('d/m/Y H:i') }}</p>
+
+{% endblock %}
+
+
+{% block title%}
+   {{ parent()}} | Test
+{% endblock %}
+
